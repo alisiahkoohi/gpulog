@@ -44,10 +44,10 @@ def main():
                                              figsize=(12, 6))
     plt.suptitle(f'Utilization statistics from {args.statfile.name}')
 
-    stats.groupby('gpu_id')['utilization.gpu [%]'].plot(ax=ax_compute, lw=0.1)
+    stats.groupby('gpu_id')['utilization.gpu [%]'].plot(ax=ax_compute, lw=1)
     ax_compute.set_ylim(-0.01, 1.01)
     ax_compute.set_ylabel('GPU utilization')
-    stats.groupby('gpu_id')['utilization.memory [%]'].plot(ax=ax_mem, lw=0.1)
+    stats.groupby('gpu_id')['utilization.memory [%]'].plot(ax=ax_mem, lw=1)
     ax_mem.set_ylim(-0.01, 1.01)
     ax_mem.set_ylabel('Memory utilization')
 
@@ -59,7 +59,7 @@ def main():
     ax_mem.set_ylim(-0.01, 1.01)
     plt.tight_layout()
     fig.savefig('gpu_usage.png',
-                dpi=2000,
+                dpi=300,
                 pad_inches=.05,
                 bbox_inches="tight",
                 format="png")
